@@ -39,6 +39,13 @@ public class ProductService {
         return this.translateDbToWeb(optional.get());
     }
 
+    public Product createOrUpdate(Product product){
+        ProductsEntity entity = this.translateWebToDb(product);
+        entity = this.productsRepository.save(entity);
+        return this.translateDbToWeb(entity);
+    }
+
+
     public void deleteProduct(long id){
         this.productsRepository.deleteById(id);
     }

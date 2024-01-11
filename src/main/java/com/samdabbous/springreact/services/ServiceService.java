@@ -37,6 +37,13 @@ public class ServiceService {
         return this.translateDbToWeb(optional.get());
     }
 
+    public Service createOrUpdate(Service service){
+        ServicesEntity entity = this.translateWebToDb(service);
+        entity = this.servicesRepository.save(entity);
+        return this.translateDbToWeb(entity);
+    }
+
+
     public void deleteService(long id){
         this.servicesRepository.deleteById(id);
     }
