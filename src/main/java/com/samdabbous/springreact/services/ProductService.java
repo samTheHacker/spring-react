@@ -22,7 +22,6 @@ public class ProductService {
 
     public List<Product> getAllProduct(){
         Iterable<ProductsEntity> entities = this.productsRepository.findAll();
-
         List<Product> products = new ArrayList<>();
             entities.forEach(entity->{
                 products.add(this.translateDbToWeb(entity));
@@ -34,7 +33,7 @@ public class ProductService {
     public Product getProduct(long id){
         Optional<ProductsEntity> optional = this.productsRepository.findById(id);
         if(optional.isEmpty()){
-            throw new NotFoundException("product not found with id");
+            throw new NotFoundException("product not found with id: " + id);
         }
         return this.translateDbToWeb(optional.get());
     }

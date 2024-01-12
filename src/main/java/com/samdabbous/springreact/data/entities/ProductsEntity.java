@@ -7,7 +7,7 @@ import lombok.ToString;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name="VENDORS")
+@Table(name="PRODUCTS")
 @Data
 @ToString
 public class ProductsEntity {
