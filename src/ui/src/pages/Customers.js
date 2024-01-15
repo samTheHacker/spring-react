@@ -8,7 +8,7 @@ const Customers = () => {
 
     useLayoutEffect( ()=> {
         const getCustomers = async() => {
-            const res = await fetch('api/customers');
+            const res = await fetch('/api/customers');
             const customers = await res.json();
             setCustomers(customers);
         }
@@ -22,7 +22,7 @@ const Customers = () => {
             <thead>
                 <th>ID</th>
                 <th>First Name</th>
-                <th>LAst Name</th>
+                <th>Last Name</th>
                 <th>Email Address</th>
                 <th>Phone Number</th>
                 <th>Address</th>
